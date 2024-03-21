@@ -1,0 +1,45 @@
+{
+    "name": "printer-client",
+    "version": "1.0.0",
+    "description": "Hello World!",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "package": "electron-builder",
+        "package-mac": "electron-packager . printer-client --overwrite --platform=darwin --arch=x64 --icon=printer.icns --prune=true --out=release-builds",
+        "package-win": "electron-packager . printer-client --overwrite --asar=true --platform=win32 --arch=ia32 --icon=printer.ico --prune=true --out=release-builds-win --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Printer Client\"",
+        "package-linux": "electron-packager . printer-client --overwrite --asar=true --platform=linux --arch=x64 --icon=printer.png --prune=true --out=release-builds"
+    },
+    "author": "Fazulur Rahaman",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^23.3.13",
+        "electron-builder": "^24.9.1",
+        "electron-packager": "^17.1.2",
+        "electron-reloader": "^1.2.3"
+    },
+    "dependencies": {
+        "axios": "^1.6.7",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "ipp": "^2.0.1",
+        "node-fetch": "^2.7.0"
+    },
+    "build": {
+        "appId": "com.shipcrm.PrinterClient",
+        "productName": "printer-client",
+        "directories": {
+            "output": "dist"
+        },
+        "linux": {
+            "target": "AppImage"
+        },
+        "mac": {
+            "target": "dmg"
+        },
+        "win": {
+            "target": "nsis"
+        }
+    }
+}
